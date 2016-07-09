@@ -1,0 +1,33 @@
+﻿<Window x:Class="WPFsearch.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFsearch"
+        mc:Ignorable="d"
+        Title="相似图像检索" Height="375.141" Width="555.809">
+    <Grid>
+        <Canvas  Name="canvas" Height="317" Width="240" Margin="10,10,292,10">
+            <Button x:Name="button" Content="生成Data" Canvas.Left="52" Canvas.Top="58" Width="138" Height="35" Click="button_Click"/>
+            <Button x:Name="button1" Content="搜索" Canvas.Left="51" Canvas.Top="206" Width="138" Height="35" Click="button1_Click"/>
+            <TextBox x:Name="textBox" Height="23" Canvas.Left="52" TextWrapping="Wrap" Canvas.Top="153" Width="137" TextChanged="textBox_TextChanged" />
+            <Label x:Name="label" Content="输入搜索文件名" Canvas.Left="52" Canvas.Top="123" Width="120"/>
+            <Slider x:Name="slider" Canvas.Left="52" Canvas.Top="181" Width="137" Maximum="200000" Minimum="0" SmallChange="5000" LargeChange="10000" Cursor="Hand"/>
+            <Label x:Name="label1" Canvas.Left="52" Canvas.Top="176"/>
+            <Label x:Name="label2"  Canvas.Left="194" Canvas.Top="176" Content="{Binding ElementName=slider, Path=Value}" Height="34" Width="46"/>
+            <Label x:Name="label3" Content="" Canvas.Left="51" Canvas.Top="98" Width="138"/>
+        </Canvas>
+        <Border BorderThickness="5" Margin="238,75,53,85" BorderBrush="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
+            <Image x:Name="image" HorizontalAlignment="Left" Margin="5,5,0,5" Width="237">
+                <Image.OpacityMask>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="#FF7C7C7C" Offset="1"/>
+                    </LinearGradientBrush>
+                </Image.OpacityMask>
+            </Image>
+        </Border>
+        <ProgressBar Name="proBar" HorizontalAlignment="Left" Height="23" Margin="10,304,0,0" VerticalAlignment="Top" Width="522" Foreground="#FFA2A2A2"/>
+
+    </Grid>
+</Window>
